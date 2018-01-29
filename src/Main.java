@@ -6,6 +6,13 @@ public class Main {
 
     public static void main(String[] args) {
 
+        arrayMethod();
+
+        phoneBookMethod();
+    }
+
+    private static void arrayMethod() {
+
         String[] array = getStringArray();
 
         HashMap<String, Integer> hashMap = new HashMap<>();
@@ -28,7 +35,9 @@ public class Main {
 
         while (iterator.hasNext()) {
 
-            System.out.println(hashMap.get(iterator.next()));
+            String key = iterator.next();
+
+            System.out.println(key + ": " + hashMap.get(key));
         }
     }
 
@@ -36,7 +45,7 @@ public class Main {
 
         String[] array = new String[20];
 
-        for (int i = 0; i < 15; i++) {
+        for (int i = 0; i < 16; i++) {
 
             array[i] = "ABC" + i;
         }
@@ -47,5 +56,23 @@ public class Main {
         array[19] = "ABC4";
 
         return array;
+    }
+
+    private static void phoneBookMethod() {
+
+        PhoneBook phoneBook = new PhoneBook();
+
+        putNames(phoneBook);
+
+        System.out.println("Сидоров: " + phoneBook.get("Сидоров"));
+        System.out.println("Петров: " + phoneBook.get("Петров"));
+    }
+
+    private static void putNames(PhoneBook phoneBook) {
+
+        phoneBook.add("Иванов", "84951234567");
+        phoneBook.add("Петров", "84957894561");
+        phoneBook.add("Петров", "84954567896");
+        phoneBook.add("Сидоров", "84957894561");
     }
 }
